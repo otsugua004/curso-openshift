@@ -6,6 +6,8 @@ RUN addgroup --system appgroup && adduser --system --group appuser
 # Establece el directorio de trabajo
 WORKDIR /app
 
+
+
 RUN pip install --upgrade pip
 
 # Instala Flask
