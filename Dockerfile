@@ -8,16 +8,15 @@ WORKDIR /app
 
 RUN pip install --upgrade pip
 
+# Instala Flask
+RUN pip install flask
+
 RUN chown -R appuser:appgroup /app
 
 USER appuser
 
 # Copia los archivos al contenedor
 COPY app.py .
-
-
-# Instala Flask
-RUN pip install flask
 
 # Expone el puerto
 EXPOSE 3000
