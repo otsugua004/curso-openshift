@@ -1,7 +1,5 @@
 # Usa una imagen base de Python
-FROM python:3.11-slim
-
-RUN addgroup --system appgroup && adduser --system --group appuser
+FROM otsugua04/hola-mundo-base:1
 
 # Establece el directorio de trabajo
 WORKDIR /app
