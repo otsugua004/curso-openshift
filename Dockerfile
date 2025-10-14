@@ -1,17 +1,23 @@
-# Usa una imagen base oficial de Python
-FROM python:3.10-slim
+# Usa una imagen base de Python
+FROM python:3.11-slim
 
 RUN addgroup --system appgroup && adduser --system --group appuser
 
-# Establece el directorio de trabajo dentro del contenedor
+# Establece el directorio de trabajo
 WORKDIR /app
 
 RUN chown -R appuser:appgroup /app
 
 USER appuser
 
-# Crea un archivo Python con el mensaje "Hola Mundo"
-RUN echo 'print("Hola Mundo")' > hola.py
+# Copia los archivos al contenedor
+COPY app.py .
 
-# Comando que se ejecutará al iniciar el contenedor
-CMD ["python", "hola.py"]
+# Instala Flask
+RUN pip install flask
+
+# Expone el puerto
+EXPOSE 3000
+
+# Comando para ejecutar la app
+CMD ["python", "app.py"]
