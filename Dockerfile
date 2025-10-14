@@ -13,6 +13,8 @@ USER appuser
 # Copia los archivos al contenedor
 COPY app.py .
 
+RUN pip install --upgrade pip
+
 # Instala Flask
 RUN pip install flask
 
