@@ -6,6 +6,8 @@ RUN addgroup --system appgroup && adduser --system --group appuser
 # Establece el directorio de trabajo
 WORKDIR /app
 
+RUN pip install --upgrade pip
+
 RUN chown -R appuser:appgroup /app
 
 USER appuser
@@ -13,7 +15,6 @@ USER appuser
 # Copia los archivos al contenedor
 COPY app.py .
 
-RUN pip install --upgrade pip
 
 # Instala Flask
 RUN pip install flask
