@@ -35,12 +35,13 @@ spec:
         image: otsugua04/hola-mundo-service1:3
         ports:
         - containerPort: 3000
-        requests:
-          cpu: 500m
-          memory: 500Mi
-        limits:
-          cpu: 800m
-          memory: 1500Mi
+        resources:
+          requests:
+            cpu: 500m
+            memory: 500Mi
+          limits:
+            cpu: 800m
+            memory: 1500Mi
         envFrom:
             - configMapRef:
                 name: mi-configmap-otsugua
