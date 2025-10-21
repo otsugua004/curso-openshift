@@ -7,7 +7,7 @@ metadata:
   namespace: otsugua04-dev
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
+kind: Role
 metadata:
   name: otsugua-cicd-role
 rules:
@@ -30,6 +30,6 @@ subjects:
   name: otsugua-cicd-serviceaccount # La cuenta de servicio que creamos
   namespace: otsugua04-dev
 roleRef:
-  kind: ClusterRole
-  name: edit # El rol que creamos
+  kind: Role
+  name: otsugua-cicd-role # El rol que creamos
   apiGroup: rbac.authorization.k8s.io
