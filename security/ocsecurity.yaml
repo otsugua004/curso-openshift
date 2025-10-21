@@ -28,9 +28,9 @@ metadata:
   namespace: otsugua04-dev
 subjects:
 - kind: ServiceAccount
-  name: otsugua-cicd-serviceaccount # La cuenta de servicio que creamos
+  name: otsugua-cicd-serviceaccount
   namespace: otsugua04-dev
 roleRef:
   kind: Role
-  name: otsugua-cicd-role # El rol que creamos
+  name: otsugua-cicd-role
   apiGroup: rbac.authorization.k8s.io
