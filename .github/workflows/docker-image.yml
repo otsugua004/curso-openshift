@@ -49,7 +49,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install OC CLI
+      - name: Install Openshift CLI
         run: |
           curl -L https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz | tar xz
           sudo mv oc /usr/local/bin/
@@ -59,3 +59,14 @@ jobs:
         with:
           openshift_server_url: https://api.rm1.0a51.p1.openshiftapps.com:6443
           openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
+      - name: Update Deployment tag
+        run: |
+          echo "Reemplazando {{ tag }} con ${{ github.run_number }}"
+          sed -i "s|{{ tag }}|${{ github.run_number }}|g" oc.yaml
+          cat oc.yaml
+
+      - name: Deploy files
+        run: |
+          oc project otsugua04-dev
+          oc apply -f oc.yaml
+          oc rollout status deployment/mi-app-otsugua
