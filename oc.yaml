@@ -39,7 +39,7 @@ spec:
             - secretRef:
                 name: mi-secret-otsugua
         volumeMounts:
-        - mountPath: /var/lib/app/data
+        - mountPath: "/app/data"
           name: otsugua-pvc
       volumes:
       - name: otsugua-pvc
