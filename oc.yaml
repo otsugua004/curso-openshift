@@ -38,7 +38,13 @@ spec:
                 name: mi-configmap-otsugua
             - secretRef:
                 name: mi-secret-otsugua
-            
+        volumeMounts:
+        - mountPath: /var/lib/app/data
+          name: otsugua-pvc
+      volumes:
+      - name: otsugua-pvc
+        persistentVolumeClaim:
+          claimName: otsugua-pvc
 ---
 
 apiVersion: v1
