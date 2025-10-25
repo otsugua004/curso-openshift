@@ -110,7 +110,7 @@ metadata:
   namespace: otsugua04-dev
 spec:
   accessModes:
-     - ReadWriteMany 
+     - ReadWriteMany
   storageClassName: gp3
   resources:
     requests:
