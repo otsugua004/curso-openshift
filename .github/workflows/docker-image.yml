@@ -29,7 +29,7 @@ jobs:
           images: ${{ secrets.DOCKERHUB_USERNAME  }}/hola-mundo-service1
           tags: |
             type=raw,value=build-${{ github.run_number }}
-            
+
       # 2. Construye la imagen de Docker
       #    Utiliza el Dockerfile que se encuentra en la raíz de tu proyecto.
       #    Esto no subirá la imagen a ningún registro (registry).
