@@ -44,7 +44,7 @@ spec:
       volumes:
       - name: otsugua-pvc
         persistentVolumeClaim:
-          claimName: otsugua-pvc2
+          claimName: otsugua-pvc
 ---
 
 apiVersion: v1
@@ -106,7 +106,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: otsugua-pvc2
+  name: otsugua-pvc
   namespace: otsugua04-dev
 spec:
   accessModes:
